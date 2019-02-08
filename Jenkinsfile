@@ -3,7 +3,6 @@ pipeline {
 	tools {
     	maven 'localMaven'
     	jdk 'localJDK'
-        org.jenkinsci.plugins.docker.commons.tools.DockerTool 'localDocker'
     }
 
 	parameters {
