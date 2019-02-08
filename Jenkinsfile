@@ -3,6 +3,7 @@ pipeline {
 	tools {
     	maven 'localMaven'
     	jdk 'localJDK'
+        docker 'localDocker'
     }
 
 	parameters {
@@ -18,7 +19,7 @@ pipeline {
         stage('Build'){
             steps {
                 sh 'mvn clean package'
-                sh "docker build . -t tomcatwebapp:${env.BUILD_ID}"
+                sh "/Applications/Docker.app/Contents/Resources/bin/docker build . -t tomcatwebapp:${env.BUILD_ID}"
             }
             post {
                 success {
